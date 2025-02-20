@@ -14,7 +14,11 @@ import { OrderSummaryComponent } from "./order-summary/order-summary.component";
         <app-cart-item [item]="item" />
       }
 
-      <app-order-summary />
+      @if (cartService.cart.length < 1) {
+        <h3>There is no item in your cart!</h3>
+      } @else {
+        <app-order-summary />
+      }
     </div>
   `,
   styleUrl: './cart.component.scss'

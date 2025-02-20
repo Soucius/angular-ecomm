@@ -16,7 +16,7 @@ import { CartService } from '../../../services/cart.service';
           
           <span class="text-md">{{ '$' + product().price }}</span>
 
-          <app-primary-button label="Add to Cart" class="mt-3" (btnClicked)="cartService.addToCart(product())" />
+          <app-primary-button label="Add to Cart" class="mt-3" [class]="product().stock ? '' : 'hidden'" (btnClicked)="cartService.addToCart(product())" />
         </div>
 
         <span class="absolute top-2 right-3 text-sm font-bold" [class]="product().stock ? 'text-green-500' : 'text-red-500'">
