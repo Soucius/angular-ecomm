@@ -15,34 +15,40 @@ import { ProductCardComponent } from "./product-card/product-card.component";
   styleUrl: './products-list.component.scss'
 })
 export class ProductsListComponent {
+  async ngOnInit() {
+    const res = await fetch('https://fakestoreapi.com/products/category/electronics');
+    const data = await res.json();
+    this.products.set(data);
+  }
+
   products = signal<Product[]>([
-    {
-      id: 1,
-      title: 'Lorem ipsum dolor sit amet.',
-      price: 110,
-      image: 'https://fakeimg.pl/250x100/',
-      stock: 10
-    },
-    {
-      id: 2,
-      title: 'Lorem ipsum dolor sit amet.',
-      price: 22,
-      image: 'https://fakeimg.pl/250x100/',
-      stock: 0
-    },
-    {
-      id: 3,
-      title: 'Lorem ipsum dolor sit amet.',
-      price: 55,
-      image: 'https://fakeimg.pl/250x100/',
-      stock: 10
-    },
-    {
-      id: 4,
-      title: 'Lorem ipsum dolor sit amet.',
-      price: 110,
-      image: 'https://fakeimg.pl/250x100/',
-      stock: 10
-    },
+    // {
+    //   id: 1,
+    //   title: 'Lorem ipsum dolor sit amet.',
+    //   price: 110,
+    //   image: 'https://fakeimg.pl/250x100/',
+    //   stock: 10
+    // },
+    // {
+    //   id: 2,
+    //   title: 'Lorem ipsum dolor sit amet.',
+    //   price: 22,
+    //   image: 'https://fakeimg.pl/250x100/',
+    //   stock: 0
+    // },
+    // {
+    //   id: 3,
+    //   title: 'Lorem ipsum dolor sit amet.',
+    //   price: 55,
+    //   image: 'https://fakeimg.pl/250x100/',
+    //   stock: 10
+    // },
+    // {
+    //   id: 4,
+    //   title: 'Lorem ipsum dolor sit amet.',
+    //   price: 110,
+    //   image: 'https://fakeimg.pl/250x100/',
+    //   stock: 10
+    // },
   ]);
 }
